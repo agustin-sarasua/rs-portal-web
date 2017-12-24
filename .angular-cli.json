@@ -19,9 +19,24 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
+        "../node_modules/animate.css/animate.min.css",
+        "../node_modules/select2/dist/css/select2.min.css",
+        "../node_modules/slick-carousel/slick/slick.css",
+        "../node_modules/nouislider/distribute/nouislider.min.css",
+        "../template/css/app_1.min.css",
+        "../template/css/app_2.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/select2/dist/js/select2.full.min.js",
+        "../node_modules/slick-carousel/slick/slick.min.js",
+        "../node_modules/nouislider/distribute/nouislider.min.js",
+        "../template/js/app.js",
+        "../template/js/demo/demo.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
