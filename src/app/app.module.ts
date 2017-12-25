@@ -13,7 +13,9 @@ import { HeaderRecommendedComponent } from './header/header-recommended/header-r
 import { HeaderSearchComponent } from './header/header-search/header-search.component';
 import { HeaderMenuComponent } from './header/header-menu/header-menu.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { AuthService } from "./services/auth.service";
+import { RestService } from "./services/rest.service";
+import { UserService } from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
     AngularFireAuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, RestService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
