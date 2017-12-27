@@ -25,7 +25,7 @@
     "animate.css": "^3.5.1",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.1",
-    "firebase": "^4.8.0",
+    "firebase": "4.8.0",
     "grunt-cdnify": "^1.0.2",
     "jquery": "^2.2.4",
     "material-design-iconic-font": "^2.2.0",

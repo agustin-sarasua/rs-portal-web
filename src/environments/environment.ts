@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  hostUrl: 'http://localhost:8080/',
+  hostUrl: 'https://api.bienderaiz.com',
   firebase: {
     apiKey: "AIzaSyAFdF8E9cL-kmNp1wj1w_9JyTjmhThoiiM",
     authDomain: "real-estate-project-186513.firebaseapp.com",
