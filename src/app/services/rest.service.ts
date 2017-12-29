@@ -15,7 +15,7 @@ export class RestService {
 
   doGet(url: string, headers: Headers, secure: boolean): Promise<string> {
     if(secure){
-      let token = this.authService.currentUser().getToken();
+      let token = this.authService.currentUser.refreshToken;
       headers.append(this.authHeader, token);
     }
     return this.http.get(environment.hostUrl + url, {headers})
@@ -26,7 +26,7 @@ export class RestService {
 
   doPost(url: string, body: string, headers: Headers, secure: boolean): Promise<string> {
     if(secure){
-      let token = this.authService.currentUser().getToken();
+      let token = this.authService.currentUser.refreshToken;
       headers.append(this.authHeader, token)
     }
     return this.http.post(environment.hostUrl + url, body, {headers})
