@@ -17,6 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from "./services/auth.service";
 import { RestService } from "./services/rest.service";
 import { UserService } from "./services/user.service";
+import { PublicationComponent } from './publication/publication.component';
+import { PropertyComponent } from './property/property.component';
+import { AddressFormComponent } from './property/address-form/address-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { UserService } from "./services/user.service";
     HeaderTopComponent,
     HeaderRecommendedComponent,
     HeaderSearchComponent,
-    HeaderMenuComponent
+    HeaderMenuComponent,
+    PublicationComponent,
+    PropertyComponent,
+    AddressFormComponent
   ],
   imports: [
     BrowserModule,

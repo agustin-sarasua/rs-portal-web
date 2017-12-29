@@ -1,7 +1,7 @@
 <div class="header__top">
   <div class="container">
       <ul class="top-nav">
-          <li class="dropdown top-nav__guest">
+          <li class="dropdown top-nav__guest" *ngIf="!authService.authenticated">
               <a data-toggle="dropdown" href="">Register</a>
 
               <form class="dropdown-menu stop-propagate">
@@ -47,7 +47,7 @@
               </form>
           </li>
 
-          <li class="dropdown top-nav__guest">
+          <li class="dropdown top-nav__guest" *ngIf="!authService.authenticated">
               <a data-toggle="dropdown" href="" data-rmd-action="switch-login">Login</a>
 
               <div class="dropdown-menu">
@@ -104,6 +104,24 @@
               </div>
           </li>
 
+          <li class="dropdown" *ngIf="authService.authenticated">
+            <a href="" data-toggle="dropdown">Hi {{authService.currentUserDisplayName}}!</a>
+
+            <ul class="dropdown-menu">
+                <li><a href="">Profile</a></li>
+                <li><a href="">Saved Searches</a></li>
+                <li><a href="">Saved Agents</a></li>
+                <li><a href="">Saved Listings</a></li>
+                <li><a href="">Logout</a></li>
+            </ul>
+        </li>
+        <li class="top-nav__icon" *ngIf="authService.authenticated">
+            <a href="">
+                <i class="zmdi zmdi-notifications"></i>
+                <i class="top-nav__alert"></i>
+            </a>
+        </li>
+
           <li class="pull-right top-nav__icon">
               <a href=""><i class="zmdi zmdi-facebook"></i></a>
           </li>
@@ -114,8 +132,9 @@
               <a href=""><i class="zmdi zmdi-google"></i></a>
           </li>
 
-          <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-email"></i>hello@Roost.com</span></li>
-          <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-phone"></i>001-541-754-3010</span></li>
+          <li class="pull-right hidden-xs">
+            <button class="btn btn-primary btn-block m-t-10 m-b-10" routerLink="/publications">Publicar</button>
+          </li>
       </ul>
   </div>
 </div>

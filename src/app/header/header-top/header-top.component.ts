@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { AuthService } from './../../services/auth.service'
 
 @Component({
   selector: 'app-header-top',
@@ -10,14 +11,22 @@ import * as firebase from 'firebase/app';
 })
 export class HeaderTopComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth) {
+  isLoggedIn : boolean;
+  userName: string;
+
+  constructor(public afAuth: AngularFireAuth, private authService:AuthService) {
+    this.isLoggedIn = this.authService.authenticated;
+    this.userName = this.authService.currentUserDisplayName;
   }
+
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
+
   logout() {
     this.afAuth.auth.signOut();
   }
+
   ngOnInit() {
   }
 

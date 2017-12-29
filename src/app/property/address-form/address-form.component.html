@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card__header">
+        <h2>Property Address</h2>
+        <small>Specify the exact address</small>
+    </div>
+
+    <form class="card__body" #addressForm="ngForm">
+        <div class="form-group form-group--float m-b-5">
+            <input type="text" class="form-control" required [(ngModel)]="address.Street" name="street" #street="ngModel">
+            <i class="form-group__bar"></i>
+            <label>Street</label>
+        </div>
+        <div class="form-group form-group--float m-b-5">
+          <input type="text" class="form-control" required [(ngModel)]="address.Number" name="number" #number="ngModel">
+          <i class="form-group__bar"></i>
+          <label>Number</label>
+        </div>
+        <div class="form-group form-group--float m-b-5">
+          <input type="text" class="form-control text-center" [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
+          <i class="form-group__bar"></i>
+          <label>Apartment Number</label>
+        </div>
+
+        <a href="#submit-property__2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
+            <i class="zmdi zmdi-long-arrow-right"></i>
+        </a>
+    </form>
+</div>
