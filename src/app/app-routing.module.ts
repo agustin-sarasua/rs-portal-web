@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {PublicationComponent } from './publication/publication.component'
 
 const routes: Routes = [
-  { path: 'publication/create', component: PublicationComponent },
+  { path: 'publications/create', component: PublicationComponent },
 ];
 
 @NgModule({

@@ -4,8 +4,8 @@
   
     <app-header-menu></app-header-menu>
   
-    <app-header-search></app-header-search>
-  
-    <app-header-recommended></app-header-recommended>
+    <app-header-search *ngIf="router.url == '/'"></app-header-search>
+
+    <app-header-recommended *ngIf="router.url == '/'"></app-header-recommended>
   
   </header>

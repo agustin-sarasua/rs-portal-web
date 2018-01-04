@@ -20,6 +20,8 @@ import { UserService } from "./services/user.service";
 import { PublicationComponent } from './publication/publication.component';
 import { PropertyComponent } from './property/property.component';
 import { AddressFormComponent } from './property/address-form/address-form.component';
+import { ContactInfoComponent } from './publication/contact-info/contact-info.component';
+import { CatalogService } from './services/catalog.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AddressFormComponent } from './property/address-form/address-form.compo
     HeaderMenuComponent,
     PublicationComponent,
     PropertyComponent,
-    AddressFormComponent
+    AddressFormComponent,
+    ContactInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { AddressFormComponent } from './property/address-form/address-form.compo
     HttpModule,
     FormsModule
   ],
-  providers: [AuthService, RestService, UserService],
+  providers: [AuthService, RestService, UserService, CatalogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

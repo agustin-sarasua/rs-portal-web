@@ -112,7 +112,7 @@ $(document).ready(function () {
         var currentTab = $(this).attr('href');
 
         $('.submit-property__steps > li').removeClass('active');
-        $('.submit-property__steps > li > a[href='+currentTab+']').parent().addClass('active');
+        $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
     })
 
 

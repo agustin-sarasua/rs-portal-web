@@ -1,28 +1,94 @@
 <div class="card">
-    <div class="card__header">
-        <h2>Property Address</h2>
-        <small>Specify the exact address</small>
+        <div class="card__header">
+            <h2>Property Location</h2>
+            <small>Aenean lacinia bibendum nulla sed consectetur</small>
+        </div>
+
+        <form class="card__body">
+            <div class="form-group form-group--float m-b-5">
+                <input type="text" class="form-control" [(ngModel)]="address.Street" name="street" #street="ngModel">
+                <i class="form-group__bar"></i>
+                <label>Street</label>
+            </div>
+
+            <div class="form-group form-group--float m-b-5">
+                <input type="text" class="form-control" [(ngModel)]="address.Number" name="number" #street="ngModel">
+                <i class="form-group__bar"></i>
+                <label>Number</label>
+            </div>
+            <!-- <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">
+                        <i class="input-helper"></i>
+                        Hide Street number on listing
+                    </label>
+                </div>
+            </div> -->
+
+            <div class="form-group form-group--float m-b-5">
+                <input type="text" class="form-control text-center" required [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
+                <i class="form-group__bar"></i>
+                <label>Unit/Floor/Block</label>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">
+                        <i class="input-helper"></i>
+                        Hide U/Floor/Block on listing
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Barrio</label>
+
+                <select class="select2" required [(ngModel)]="address.Neighbourhood" name="neighborhood" #apartmentNumber="ngModel">
+                    <option *ngFor="let nei of configuration.Neighbourhoods" [value]="nei">{{nei}}</option>
+                    <!-- <option value="PUNTA_CARRETAS">Punta Carretas</option>
+                    <option value="">Condo</option>
+                    <option value="">Townhome</option>
+                    <option value="">Apartment Community</option>
+                    <option value="">Room</option> -->
+                </select>
+            </div>
+
+            <a href="#submit-property-2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
+                <i class="zmdi zmdi-long-arrow-right"></i>
+            </a>
+        </form>
     </div>
 
-    <form class="card__body" #addressForm="ngForm">
-        <div class="form-group form-group--float m-b-5">
-            <input type="text" class="form-control" required [(ngModel)]="address.Street" name="street" #street="ngModel">
-            <i class="form-group__bar"></i>
-            <label>Street</label>
-        </div>
-        <div class="form-group form-group--float m-b-5">
-          <input type="text" class="form-control" required [(ngModel)]="address.Number" name="number" #number="ngModel">
-          <i class="form-group__bar"></i>
-          <label>Number</label>
-        </div>
-        <div class="form-group form-group--float m-b-5">
-          <input type="text" class="form-control text-center" [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
-          <i class="form-group__bar"></i>
-          <label>Apartment Number</label>
-        </div>
+<!-- 
 
-        <a href="#submit-property__2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
-            <i class="zmdi zmdi-long-arrow-right"></i>
-        </a>
-    </form>
-</div>
+    <div class="card">
+            <div class="card__header">
+                <h2>Property Address</h2>
+                <small>Specify the exact address</small>
+            </div>
+        
+            <form class="card__body" #addressForm="ngForm">
+                <div class="form-group form-group--float m-b-5">
+                    <input type="text" class="form-control" required [(ngModel)]="address.Street" name="street" #street="ngModel">
+                    <i class="form-group__bar"></i>
+                    <label>Street</label>
+                </div>
+                <div class="form-group form-group--float m-b-5">
+                  <input type="text" class="form-control" required [(ngModel)]="address.Number" name="number" #number="ngModel">
+                  <i class="form-group__bar"></i>
+                  <label>Number</label>
+                </div>
+                <div class="form-group form-group--float m-b-5">
+                  <input type="text" class="form-control text-center" [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
+                  <i class="form-group__bar"></i>
+                  <label>Apartment Number</label>
+                </div>
+        
+                <a href="#submit-property__2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
+                    <i class="zmdi zmdi-long-arrow-right"></i>
+                </a>
+            </form>
+        </div>
+         -->
