@@ -43,17 +43,23 @@
             </div>
 
             <div class="form-group">
+                <label>Ciudad</label>
+
+                <select class="select2" [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel3">
+                    <!-- <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option> -->
+                    <option *ngFor="let c of configuration.Cities" [ngValue]="c.Code">{{c.Name}}</option>
+                </select>
+            </div>
+
+            
+            
+            <!-- <div class="form-group">
                 <label>Barrio</label>
 
                 <select class="select2" required [(ngModel)]="address.Neighbourhood" name="neighborhood" #apartmentNumber="ngModel">
                     <option *ngFor="let nei of configuration.Neighbourhoods" [value]="nei">{{nei}}</option>
-                    <!-- <option value="PUNTA_CARRETAS">Punta Carretas</option>
-                    <option value="">Condo</option>
-                    <option value="">Townhome</option>
-                    <option value="">Apartment Community</option>
-                    <option value="">Room</option> -->
                 </select>
-            </div>
+            </div> -->
 
             <a href="#submit-property-2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
                 <i class="zmdi zmdi-long-arrow-right"></i>

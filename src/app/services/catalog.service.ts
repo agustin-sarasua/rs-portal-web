@@ -14,12 +14,12 @@ export class CatalogService {
 
   constructor(private http: Http, private restService: RestService, private authService: AuthService) { }
 
-  public loadConfiguration(): Promise<Property[]> {
+  public loadConfiguration(country: string): Promise<Property[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     // let token = this.authService.currentUser.refreshToken;
     // headers.append(this.authHeader, token);
 
-    return this.http.get(environment.hostUrl + "/catalog/UY/MVD", { headers })
+    return this.http.get(environment.hostUrl + "/catalog/country/"+country, { headers })
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
