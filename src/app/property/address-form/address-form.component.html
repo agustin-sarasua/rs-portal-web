@@ -27,12 +27,16 @@
             </div> -->
 
             <div class="form-group form-group--float m-b-5">
-                <input type="text" class="form-control text-center" required [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
+                <input type="text" class="form-control text-center" [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
                 <i class="form-group__bar"></i>
-                <label>Unit/Floor/Block</label>
+                <label>Unidad / Apartamento</label>
             </div>
-
-            <div class="form-group">
+            <div class="form-group form-group--float m-b-5">
+                <input type="text" class="form-control text-center" [(ngModel)]="address.PostalCode" name="postalCode" #apartmentNumber="ngModel">
+                <i class="form-group__bar"></i>
+                <label>Codigo Postal</label>
+            </div>
+            <!-- <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox">
@@ -40,7 +44,7 @@
                         Hide U/Floor/Block on listing
                     </label>
                 </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <label>Ciudad</label>
@@ -55,7 +59,12 @@
                     <!-- <option *ngFor="let c of selectedCity.Neighbourhoods" [ngValue]="c.Code">{{c.Name}}</option> -->
                 </select>
             </div>
-            
+            <div class="form-group">
+                <label>Ubicación en el mapa</label>
+                <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)" [zoom]="zoom">
+                    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"></agm-marker>
+                </agm-map>
+            </div>
             <!-- <div class="form-group">
                 <label>Barrio</label>
 
@@ -69,35 +78,3 @@
             </a>
         </form>
     </div>
-
-<!-- 
-
-    <div class="card">
-            <div class="card__header">
-                <h2>Property Address</h2>
-                <small>Specify the exact address</small>
-            </div>
-        
-            <form class="card__body" #addressForm="ngForm">
-                <div class="form-group form-group--float m-b-5">
-                    <input type="text" class="form-control" required [(ngModel)]="address.Street" name="street" #street="ngModel">
-                    <i class="form-group__bar"></i>
-                    <label>Street</label>
-                </div>
-                <div class="form-group form-group--float m-b-5">
-                  <input type="text" class="form-control" required [(ngModel)]="address.Number" name="number" #number="ngModel">
-                  <i class="form-group__bar"></i>
-                  <label>Number</label>
-                </div>
-                <div class="form-group form-group--float m-b-5">
-                  <input type="text" class="form-control text-center" [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
-                  <i class="form-group__bar"></i>
-                  <label>Apartment Number</label>
-                </div>
-        
-                <a href="#submit-property__2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
-                    <i class="zmdi zmdi-long-arrow-right"></i>
-                </a>
-            </form>
-        </div>
-         -->

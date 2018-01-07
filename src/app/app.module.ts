@@ -22,6 +22,7 @@ import { PropertyComponent } from './property/property.component';
 import { AddressFormComponent } from './property/address-form/address-form.component';
 import { ContactInfoComponent } from './publication/contact-info/contact-info.component';
 import { CatalogService } from './services/catalog.service';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -43,9 +44,13 @@ import { CatalogService } from './services/catalog.service';
     AngularFireAuthModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyACJKu02HEsFKKdmu_4is_V9iDSHzdNnBs'
+    })
+
   ],
-  providers: [AuthService, RestService, UserService, CatalogService],
+  providers: [AuthService, RestService, UserService, CatalogService, GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
