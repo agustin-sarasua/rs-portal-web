@@ -44,14 +44,17 @@
 
             <div class="form-group">
                 <label>Ciudad</label>
-
-                <select class="select2" [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel3">
-                    <!-- <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option> -->
+                <select class="select2" [(ngModel)]="address.City" name="city" #city="ngModel">
                     <option *ngFor="let c of configuration.Cities" [ngValue]="c.Code">{{c.Name}}</option>
                 </select>
             </div>
 
-            
+            <div class="form-group">
+                <label>Barrio</label>
+                <select class="select2 neighbourhood-selector" name="neighbourhood" [(ngModel)]="address.Neighbourhood" #neighbourhood="ngModel">
+                    <!-- <option *ngFor="let c of selectedCity.Neighbourhoods" [ngValue]="c.Code">{{c.Name}}</option> -->
+                </select>
+            </div>
             
             <!-- <div class="form-group">
                 <label>Barrio</label>

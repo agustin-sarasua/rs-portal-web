@@ -14,7 +14,7 @@ export class CatalogService {
 
   constructor(private http: Http, private restService: RestService, private authService: AuthService) { }
 
-  public loadConfiguration(country: string): Promise<Property[]> {
+  public loadConfiguration(country: string): Promise<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     // let token = this.authService.currentUser.refreshToken;
     // headers.append(this.authHeader, token);
