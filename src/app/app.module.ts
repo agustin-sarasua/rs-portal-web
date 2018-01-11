@@ -3,7 +3,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -23,6 +23,8 @@ import { AddressFormComponent } from './property/address-form/address-form.compo
 import { ContactInfoComponent } from './publication/contact-info/contact-info.component';
 import { CatalogService } from './services/catalog.service';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyACJKu02HEsFKKdmu_4is_V9iDSHzdNnBs'
     })

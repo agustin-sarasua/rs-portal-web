@@ -4,17 +4,17 @@
             <small>Aenean lacinia bibendum nulla sed consectetur</small>
         </div>
 
-        <form class="card__body">
-            <div class="form-group form-group--float m-b-5">
-                <input type="text" class="form-control" [(ngModel)]="address.Street" name="street" #street="ngModel">
+        <div class="card__body" [formGroup]="address">
+            <div class="form-group form-group--float m-b-5 {{!address.controls.street.valid && address.controls.street.touched ? 'has-error' : ''}}">
+                <input type="text" class="form-control" formControlName="street" name="street">
                 <i class="form-group__bar"></i>
-                <label>Street</label>
+                <label>* Calle</label>
             </div>
 
-            <div class="form-group form-group--float m-b-5">
-                <input type="text" class="form-control" [(ngModel)]="address.Number" name="number" #street="ngModel">
+            <div class="form-group form-group--float m-b-5 {{!address.controls.number.valid && address.controls.number.touched ? 'has-error' : ''}}" >
+                <input type="text" class="form-control" formControlName="number" name="number">
                 <i class="form-group__bar"></i>
-                <label>Number</label>
+                <label>* Numero</label>
             </div>
             <!-- <div class="form-group">
                 <div class="checkbox">
@@ -27,12 +27,12 @@
             </div> -->
 
             <div class="form-group form-group--float m-b-5">
-                <input type="text" class="form-control text-center" [(ngModel)]="address.ApartmentNumber" name="apartmentNumber" #apartmentNumber="ngModel">
+                <input type="text" class="form-control text-center" formControlName="apartmentNumber" name="apartmentNumber">
                 <i class="form-group__bar"></i>
                 <label>Unidad / Apartamento</label>
             </div>
             <div class="form-group form-group--float m-b-5">
-                <input type="text" class="form-control text-center" [(ngModel)]="address.PostalCode" name="postalCode" #apartmentNumber="ngModel">
+                <input type="text" class="form-control text-center" formControlName="postalCode" name="postalCode">
                 <i class="form-group__bar"></i>
                 <label>Codigo Postal</label>
             </div>
@@ -46,17 +46,16 @@
                 </div>
             </div> -->
 
-            <div class="form-group">
+            <div class="form-group {{!address.controls.city.valid && address.controls.city.touched ? 'has-error' : ''}}">
                 <label>Ciudad</label>
-                <select class="select2" [(ngModel)]="address.City" name="city" #city="ngModel">
+                <select class="select2" formControlName="city" name="city">
                     <option *ngFor="let c of configuration.Cities" [ngValue]="c.Code">{{c.Name}}</option>
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group {{!address.controls.neighbourhood.valid && address.controls.neighbourhood.touched ? 'has-error' : ''}}" >
                 <label>Barrio</label>
-                <select class="select2 neighbourhood-selector" name="neighbourhood" [(ngModel)]="address.Neighbourhood" #neighbourhood="ngModel">
-                    <!-- <option *ngFor="let c of selectedCity.Neighbourhoods" [ngValue]="c.Code">{{c.Name}}</option> -->
+                <select class="select2 neighbourhood-selector" name="neighbourhood" formControlName="neighbourhood">
                 </select>
             </div>
             <div class="form-group">
@@ -65,16 +64,8 @@
                     <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"></agm-marker>
                 </agm-map>
             </div>
-            <!-- <div class="form-group">
-                <label>Barrio</label>
-
-                <select class="select2" required [(ngModel)]="address.Neighbourhood" name="neighborhood" #apartmentNumber="ngModel">
-                    <option *ngFor="let nei of configuration.Neighbourhoods" [value]="nei">{{nei}}</option>
-                </select>
-            </div> -->
-
             <a href="#submit-property-2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
                 <i class="zmdi zmdi-long-arrow-right"></i>
             </a>
-        </form>
+        </div>
     </div>

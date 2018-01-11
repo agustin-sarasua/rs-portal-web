@@ -1,8 +1,11 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
 import {Address} from './../../model/address'
 import { CatalogService } from '../../services/catalog.service';
 import { MouseEvent } from '@agm/core';
 import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
+declare var $ :any;
+
 
 declare var google: any;
 
@@ -13,7 +16,9 @@ declare var google: any;
 })
 export class AddressFormComponent implements OnInit, AfterViewInit {
 
-  address: Address;
+  @Input() address: FormGroup;
+  
+  mAddress: Address;
   configuration: any;
   cityCode: string;
   selectedCity: any;
@@ -23,13 +28,13 @@ export class AddressFormComponent implements OnInit, AfterViewInit {
   zoom: number = 12;
   
   constructor(private catalogService: CatalogService, private wrapper: GoogleMapsAPIWrapper, private _loader: MapsAPILoader) { 
-    this.address = new Address();
-    this.address.Country = "UY";
-    this.address.City = "MVD";
+    this.mAddress = new Address();
+    this.mAddress.Country = "UY";
+    this.mAddress.City = "MVD";
     this.configuration = { Cities:[]};
     this.selectedCity = { Neighbourhoods: [{Code:"POCITOS", Name:"Pocitos"}]};
     this.cityCode = "MVD";
-    this.catalogService.loadConfiguration(this.address.Country)
+    this.catalogService.loadConfiguration(this.mAddress.Country)
     .then(c => {
       this.configuration = c;
       this.refreshNeighbourhoods(this.cityCode, false);
