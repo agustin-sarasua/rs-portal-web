@@ -36,7 +36,20 @@ export class PublicationComponent implements OnInit, AfterViewInit {
         })
       }),
       property: this.fb.group({
-        bedrooms: ['', <any>Validators.required]
+        description: [''],
+        title: ['', <any>Validators.required],
+        type: ['', <any>Validators.required],
+        orientation: ['', <any>Validators.required],
+        squareFeet: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000)]],
+        lotSize: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000)]],
+        terraceSize: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000)]],
+        bedrooms: ['', [<any>Validators.required,Validators.min(0), Validators.max(5)]],
+        state: ['', [<any>Validators.required,Validators.min(0), Validators.max(10)]],
+        disposition: [''],
+        bathrooms: ['', [<any>Validators.required,Validators.min(0), Validators.max(5)]],
+        floors: ['', [<any>Validators.required,Validators.min(0), Validators.max(5)]],
+        garages: ['', [<any>Validators.required,Validators.min(0), Validators.max(4)]],
+        constructionYear: ['', [Validators.min(1800), Validators.max(2045)]]
       })
     })
   }

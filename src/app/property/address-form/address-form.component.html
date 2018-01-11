@@ -1,17 +1,17 @@
 <div class="card">
         <div class="card__header">
-            <h2>Property Location</h2>
-            <small>Aenean lacinia bibendum nulla sed consectetur</small>
+            <h2>Ubicación de la Propiedad</h2>
+            <small></small>
         </div>
 
         <div class="card__body" [formGroup]="address">
-            <div class="form-group form-group--float m-b-5 {{!address.controls.street.valid && address.controls.street.touched ? 'has-error' : ''}}">
+            <div class="form-group form-group--float {{!address.controls.street.valid && address.controls.street.touched ? 'has-error' : ''}}">
                 <input type="text" class="form-control" formControlName="street" name="street">
                 <i class="form-group__bar"></i>
                 <label>* Calle</label>
             </div>
 
-            <div class="form-group form-group--float m-b-5 {{!address.controls.number.valid && address.controls.number.touched ? 'has-error' : ''}}" >
+            <div class="form-group form-group--float {{!address.controls.number.valid && address.controls.number.touched ? 'has-error' : ''}}" >
                 <input type="text" class="form-control" formControlName="number" name="number">
                 <i class="form-group__bar"></i>
                 <label>* Numero</label>
@@ -26,12 +26,12 @@
                 </div>
             </div> -->
 
-            <div class="form-group form-group--float m-b-5">
+            <div class="form-group form-group--float">
                 <input type="text" class="form-control text-center" formControlName="apartmentNumber" name="apartmentNumber">
                 <i class="form-group__bar"></i>
                 <label>Unidad / Apartamento</label>
             </div>
-            <div class="form-group form-group--float m-b-5">
+            <div class="form-group form-group--float">
                 <input type="text" class="form-control text-center" formControlName="postalCode" name="postalCode">
                 <i class="form-group__bar"></i>
                 <label>Codigo Postal</label>

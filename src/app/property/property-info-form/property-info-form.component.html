@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card__header">
-        <h2>Property Information</h2>
-        <small>Sed posuere consectetur estat lobortis ultricies</small>
+        <h2>Información de la Propiedad</h2>
+        <small></small>
     </div>
 
-    <div class="card__body">
-        <div class="form-group" [formGroup]="property">
-            <label>Property Type</label>
+    <div class="card__body" [formGroup]="property">
+        <div class="form-group">
+            <label>Tipo de Propiedad</label>
 
             <select class="select2">
                 <option value="">Single Family Home</option>
@@ -18,118 +18,154 @@
         </div>
 
         <div class="form-group form-group--float form-group--float-center">
-            <input type="text" class="form-control text-center">
+            <input type="text" formControlName="title" class="form-control text-center">
             <i class="form-group__bar"></i>
-            <label>Property title</label>
+            <label>* Titulo</label>
         </div>
 
         <div class="form-group form-group--float form-group--float-center">
-            <textarea class="form-control text-center textarea-autoheight"></textarea>
+            <textarea formControlName="description" class="form-control text-center textarea-autoheight"></textarea>
             <i class="form-group__bar"></i>
-            <label>Description</label>
+            <label>Descripcion</label>
+        </div>
+
+        <div class="form-group">
+            <label>Estado</label>
+
+            <select class="select2">
+                <option value="">Reciclada</option>
+                <option value="">A reciclar</option>
+                <option value="">Requerie mantenimiento</option>
+                <option value="">Buen estado</option>
+                <option value="">Excelente estado</option>
+                <option value="">A estrenar</option>
+                <option value="">En construcción</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Disposición</label>
+
+            <select class="select2">
+                <option value="">Al frente</option>
+                <option value="">Contrafrente</option>
+                <option value="">Interior</option>
+                <option value="">Lateral</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Orientación</label>
+
+            <select class="select2">
+                <option value="">Norte</option>
+                <option value="">Sur</option>
+                <option value="">Este</option>
+                <option value="">Oeste</option>
+            </select>
         </div>
 
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group form-group--float form-group--float-center">
-                    <input type="text" class="form-control text-center">
+                    <input type="text" formControlName="squareFeet" class="form-control text-center">
                     <i class="form-group__bar"></i>
-                    <label>Square Feet</label>
+                    <label>M² Construidos</label>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="form-group form-group--float form-group--float-center">
-                    <input type="text" class="form-control text-center">
+                    <input type="text" formControlName="lotSize" class="form-control text-center">
                     <i class="form-group__bar"></i>
-                    <label>Lot Size</label>
+                    <label>M² del Predio</label>
                 </div>
             </div>
         </div>
 
         <div class="form-group form-group--float form-group--float-center">
-            <input type="text" class="form-control text-center">
+            <input type="text" formControlName="constructionYear" class="form-control text-center">
             <i class="form-group__bar"></i>
-            <label>Year Built</label>
+            <label>Año de Construcción</label>
         </div>
 
         <div class="form-group">
-            <label>Bedrooms</label>
+            <label>Dormitorios</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">1
+                    <input type="radio" formControlName="bedrooms" value="0" name="bedrooms">1 Amb.
+                </label>
+                <label class="btn">
+                    <input type="radio" formControlName="bedrooms" value="1" name="bedrooms">1
                 </label>
                 <label class="btn active">
-                    <input type="radio" name="inner-search-beds" checked>2
+                    <input type="radio" formControlName="bedrooms" value="2" name="bedrooms" checked>2
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">3
+                    <input type="radio" formControlName="bedrooms" value="3" name="bedrooms">3
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">4
+                    <input type="radio" formControlName="bedrooms" value="4" name="bedrooms">4
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">4+
+                    <input type="radio" formControlName="bedrooms" value="5" name="bedrooms">4+
                 </label>
             </div>
         </div>
 
         <div class="form-group">
-            <label>Bathrooms</label>
+            <label>Baños</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">1
+                    <input type="radio" formControlName="bathrooms" value="1"  name="bathrooms">1
                 </label>
                 <label class="btn active">
-                    <input type="radio" name="inner-search-beds" checked>2
+                    <input type="radio" formControlName="bathrooms" value="2" name="bathrooms" checked>2
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">3
+                    <input type="radio" formControlName="bathrooms" value="3" name="bathrooms">3
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">4
+                    <input type="radio" formControlName="bathrooms" value="4" name="bathrooms">4
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">4+
+                    <input type="radio" formControlName="bathrooms" value="5" name="bathrooms">4+
                 </label>
             </div>
         </div>
 
         <div class="form-group">
-            <label>No. of Floors</label>
+            <label>No. de Pisos</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">1
+                    <input type="radio" formControlName="floors" value="1" name="floors">1
                 </label>
                 <label class="btn active">
-                    <input type="radio" name="inner-search-beds" checked>2
+                    <input type="radio" formControlName="floors" value="2" name="floors" checked>2
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">3
+                    <input type="radio" formControlName="floors" value="3" name="floors">3
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">4
-                </label>
-                <label class="btn">
-                    <input type="radio" name="inner-search-beds">4+
+                    <input type="radio" formControlName="floors" value="4" name="floors">3+
                 </label>
             </div>
         </div>
 
         <div class="form-group">
-            <label>Parking Space</label>
+            <label>Garages</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">1
+                    <input type="radio" formControlName="garages" value="1" name="garages" checked>1
                 </label>
                 <label class="btn active">
-                    <input type="radio" name="inner-search-beds" checked>2
+                    <input type="radio" formControlName="garages" value="2" name="garages">2
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">3
+                    <input type="radio" formControlName="garages" value="3" name="garages">3
                 </label>
                 <label class="btn">
-                    <input type="radio" name="inner-search-beds">3+
+                    <input type="radio" formControlName="garages" value="4" name="garages">3+
                 </label>
             </div>
         </div>
