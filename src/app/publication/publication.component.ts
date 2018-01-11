@@ -34,6 +34,9 @@ export class PublicationComponent implements OnInit, AfterViewInit {
           latitude: ['', <any>Validators.required],
           longitude: ['', <any>Validators.required]
         })
+      }),
+      property: this.fb.group({
+        bedrooms: ['', <any>Validators.required]
       })
     })
   }
