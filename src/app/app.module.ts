@@ -26,6 +26,7 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 import * as $ from 'jquery';
 import { PropertyInfoFormComponent } from './property/property-info-form/property-info-form.component';
+import { AmenitiesFormComponent } from './property/amenities-form/amenities-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PropertyInfoFormComponent } from './property/property-info-form/propert
     PropertyComponent,
     AddressFormComponent,
     ContactInfoComponent,
-    PropertyInfoFormComponent
+    PropertyInfoFormComponent,
+    AmenitiesFormComponent
   ],
   imports: [
     BrowserModule,
