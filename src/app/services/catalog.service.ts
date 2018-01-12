@@ -25,6 +25,30 @@ export class CatalogService {
       .catch(this.handleError);
   }
 
+  public loadAmenitites(country: string): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    // let token = this.authService.currentUser.refreshToken;
+    // headers.append(this.authHeader, token);
+
+    return this.http.get(environment.hostUrl + "/catalog/config/"+country+"/amenities", { headers })
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  public loadPropertyTypes(country: string): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    // let token = this.authService.currentUser.refreshToken;
+    // headers.append(this.authHeader, token);
+
+    return this.http.get(environment.hostUrl + "/catalog/config/"+country+"/property-types", { headers })
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  
+
   extractData(res: Response) {
     if (res.status < 200 || res.status >= 300) {
       throw new Error('Bad response status: ' + res.status);
