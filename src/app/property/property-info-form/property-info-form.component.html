@@ -7,13 +7,8 @@
     <div class="card__body" [formGroup]="property">
         <div class="form-group">
             <label>Tipo de Propiedad</label>
-
-            <select class="select2">
-                <option value="">Single Family Home</option>
-                <option value="">Condo</option>
-                <option value="">Townhome</option>
-                <option value="">Apartment Community</option>
-                <option value="">Room</option>
+            <select class="select2" formControlName="type" name="type">
+                <option *ngFor="let c of propertyTypes.Items" [ngValue]="c.Code">{{c.Name}}</option>
             </select>
         </div>
 

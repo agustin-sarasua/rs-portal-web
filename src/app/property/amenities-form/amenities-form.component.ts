@@ -8,36 +8,41 @@ import { CatalogService } from '../../services/catalog.service';
 })
 export class AmenitiesFormComponent implements OnInit {
 
-  amenitites: any;
+  amenities: any;
   selectedAmenities: Array<string>;
 
   constructor(private catalogService: CatalogService) { 
+    this.amenities = {};
+    this.amenities.Items = [];
+    this.selectedAmenities = [];
+
     this.catalogService.loadAmenitites("UY")
     .then(c => {
-      this.amenitites = c;
+      this.amenities = c;
       //this.refreshNeighbourhoods(this.cityCode, false);
     });
   }
 
   ngOnInit() {
+
   }
 
   change(event){
     if (event.target.checked) {
       //Add
-      this.amenitites.push(event.target.name);
+      this.selectedAmenities.push(event.target.value);
     } else{
       //Remove
-      var index = this.amenitites.indexOf(event.target.name, 0);
+      var index = this.selectedAmenities.indexOf(event.target.value, 0);
       if (index > -1) {
-        this.amenitites.splice(index, 1);
+        this.amenities.splice(index, 1);
       }
     }
     
   }
 
   isSelected(amentity){
-    return this.amenitites.indexOf(amentity, 0) != -1;
+    return this.selectedAmenities.indexOf(amentity, 0) != -1;
   }
 
 }

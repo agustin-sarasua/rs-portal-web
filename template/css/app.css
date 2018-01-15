@@ -12028,18 +12028,27 @@ a {
   background-color: #03A9F4;
   color: #fff;
 }
+
 .submit-property__steps > li.active:nth-child(2) ~ .submit-property__caret {
-  left: calc(20% + 10px);
+  left: calc(16% + 10px);
 }
+
 .submit-property__steps > li.active:nth-child(3) ~ .submit-property__caret {
-  left: calc(40% + 10px);
+  left: calc(33% + 10px);
 }
+
 .submit-property__steps > li.active:nth-child(4) ~ .submit-property__caret {
-  left: calc(60% + 10px);
+  left: calc(50% + 10px);
 }
+
 .submit-property__steps > li.active:nth-child(5) ~ .submit-property__caret {
-  left: calc(80% + 10px);
+  left: calc(66% + 10px);
 }
+
+.submit-property__steps > li.active:nth-child(6) ~ .submit-property__caret {
+  left: calc(83% + 10px);
+}
+
 .submit-property__content {
   margin-top: 40px;
 }
