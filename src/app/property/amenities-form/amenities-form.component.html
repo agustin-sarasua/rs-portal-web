@@ -6,19 +6,77 @@
 
   <form class="card__body">
       <div class="row" *ngIf="amenities">
-        <div class="col-sm-6"  *ngFor="let a of amenities.Items">
-            <div class="form-group amenities">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="{{a.Code}}" name="{{a.Name}}" [checked]="isSelected(a.Code)" (change) ="change($event)">
-                        <i class="input-helper"></i>
-                        {{a.Name}}
-                    </label>
+        <header class="section__title">
+            <h2>Las más comunes</h2>
+        </header>
+        <div *ngFor="let a of amenities.Items">
+            <div class="col-sm-6" *ngIf="a.Type == 'GROUP_1'">
+                <div class="form-group amenities">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="{{a.Code}}" name="{{a.Name}}" [checked]="isSelected(a.Code)" (change) ="change($event)">
+                            <i class="input-helper"></i>
+                            {{a.Name}}
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
-
-      </div>
+    </div>
+    <div class="row" *ngIf="amenities">
+        <header class="section__title">
+            <h2>Más confort</h2>
+        </header>
+        <div *ngFor="let a of amenities.Items">
+            <div class="col-sm-6"  *ngIf="a.Type == 'GROUP_2'">
+                <div class="form-group amenities">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="{{a.Code}}" name="{{a.Name}}" [checked]="isSelected(a.Code)" (change) ="change($event)">
+                            <i class="input-helper"></i>
+                            {{a.Name}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="amenities">
+        <header class="section__title">
+            <h2>Seguridad</h2>
+        </header>
+        <div *ngFor="let a of amenities.Items">
+            <div class="col-sm-6"  *ngIf="a.Type == 'SECURITY'">
+                <div class="form-group amenities">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="{{a.Code}}" name="{{a.Name}}" [checked]="isSelected(a.Code)" (change) ="change($event)">
+                            <i class="input-helper"></i>
+                            {{a.Name}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="amenities">
+        <header class="section__title">
+            <h2>Otros</h2>
+        </header>
+        <div *ngFor="let a of amenities.Items">
+            <div class="col-sm-6"  *ngIf="a.Type == 'OTHER'">
+                <div class="form-group amenities">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="{{a.Code}}" name="{{a.Name}}" [checked]="isSelected(a.Code)" (change) ="change($event)">
+                            <i class="input-helper"></i>
+                            {{a.Name}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
       <a href="#submit-property-6" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
           <i class="zmdi zmdi-check"></i>

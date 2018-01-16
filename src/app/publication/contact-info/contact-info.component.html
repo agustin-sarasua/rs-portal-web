@@ -1,46 +1,46 @@
 <div class="card">
     <div class="card__header">
-        <h2>Contact Information</h2>
-        <small>Curabitur blandit tempus porttitor ligula malesuada</small>
+        <h2>Información de Contacto</h2>
+        <small>A dónde quiero que me contacten</small>
     </div>
 
-    <form class="card__body">
+    <div class="card__body" [formGroup]="contactInfo">
         <div class="form-group form-group--float form-group--float-center">
-            <input type="text" class="form-control text-center">
+            <input type="text" class="form-control text-center" formControlName="name" name="name">
             <i class="form-group__bar"></i>
-            <label>Full Name</label>
+            <label>Nombre</label>
         </div>
 
-        <div class="form-group form-group--float form-group--float-center">
+        <!-- <div class="form-group form-group--float form-group--float-center">
             <input type="text" class="form-control text-center">
             <i class="form-group__bar"></i>
             <label>Organization Name (Opt.)</label>
-        </div>
+        </div> -->
 
-        <div class="form-group form-group--float form-group--float-center m-b-5">
-            <input type="text" class="form-control text-center">
+        <div class="form-group form-group--float form-group--float-center">
+            <input type="text" class="form-control text-center" formControlName="email" name="email">
             <i class="form-group__bar"></i>
-            <label>Email Address</label>
+            <label>Email</label>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <div class="checkbox">
                 <label>
                     <input type="checkbox">
                     <i class="input-helper"></i>
-                    Hide Email Address on listing
+                    No mostrar 
                 </label>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group form-group--float form-group--float-center">
-            <input type="text" class="form-control text-center">
+            <input type="text" class="form-control text-center" formControlName="phone" name="phone">
             <i class="form-group__bar"></i>
-            <label>Contact Number</label>
+            <label>Celular / Teléfono</label>
         </div>
 
         <a href="#submit-property-3" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
             <i class="zmdi zmdi-long-arrow-right"></i>
         </a>
-    </form>
+    </div>
 </div>

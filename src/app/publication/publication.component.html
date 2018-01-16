@@ -1,8 +1,8 @@
 <section class="section">
     <div class="container">
         <header class="section__title">
-            <h2>Submit your property</h2>
-            <small>Praesent commodo cursus magnavel sceleris quenisl consecte turet</small>
+            <h2>Publica tu Propiedad</h2>
+            <small>Mientras mejor la describas, mejor posicionada saldrá.</small>
         </header>
 
         <form [formGroup]="myForm">
@@ -24,49 +24,11 @@
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-2">
-                        <app-contact-info></app-contact-info>
+                        <app-contact-info [contactInfo]="myForm.controls.contactInfo"></app-contact-info>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-3">
-                        <div class="card">
-                            <div class="card__header">
-                                <h2>Sale Information</h2>
-                                <small>Nullam iddolor dnibh ultricies vehicula utielit</small>
-                            </div>
-
-                            <form class="card__body">
-                                <div class="form-group form-group--float form-group--float-center">
-                                    <input type="text" class="form-control text-center">
-                                    <i class="form-group__bar"></i>
-                                    <label>Askin Price</label>
-                                </div>
-
-                                <div class="form-group form-group--float form-group--float-center">
-                                    <input type="text" class="form-control text-center">
-                                    <i class="form-group__bar"></i>
-                                    <label>Maintenance amount per month</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Owner Information</label>
-                                    <div class="btn-group btn-group-justified" data-toggle="buttons">
-                                        <label class="btn active">
-                                            <input type="radio" name="advanced-search-beds" checked>Agent
-                                        </label>
-                                        <label class="btn">
-                                            <input type="radio" name="advanced-search-beds">Owner
-                                        </label>
-                                        <label class="btn">
-                                            <input type="radio" name="advanced-search-beds">Other
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <a href="#submit-property-4" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
-                                    <i class="zmdi zmdi-long-arrow-right"></i>
-                                </a>
-                            </form>
-                        </div>
+                        <app-sale-info [saleInfo]="myForm.controls.saleInfo"></app-sale-info>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-4">

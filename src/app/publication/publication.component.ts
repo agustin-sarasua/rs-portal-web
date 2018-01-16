@@ -50,6 +50,16 @@ export class PublicationComponent implements OnInit, AfterViewInit {
         floors: ['', [<any>Validators.required,Validators.min(0), Validators.max(5)]],
         garages: ['', [<any>Validators.required,Validators.min(0), Validators.max(4)]],
         constructionYear: ['', [Validators.min(1800), Validators.max(2045)]]
+      }),
+      saleInfo: this.fb.group({
+        price: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000000)]],
+        expeneses: ['', [<any>Validators.required,Validators.min(0), Validators.max(100000000)]],
+        currency: ['', <any>Validators.required]
+      }),
+      contactInfo: this.fb.group({
+        name: ['', <any>Validators.required],
+        phone: ['', <any>Validators.required],
+        email: ['', <any>Validators.required]
       })
     })
   }
