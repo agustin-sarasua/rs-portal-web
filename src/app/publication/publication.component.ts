@@ -28,7 +28,7 @@ export class PublicationComponent implements OnInit, AfterViewInit {
         street: ['', <any>Validators.required],
         number: ['', <any>Validators.required],
         apartmentNumber: [''],
-        neighbourhood: ['', <any>Validators.required],
+        neighbourhood: [''],
         city: ['', <any>Validators.required],
         country: ['', <any>Validators.required],
         postalCode: [''],

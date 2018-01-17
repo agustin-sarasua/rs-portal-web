@@ -19,7 +19,6 @@ export class AddressFormComponent implements OnInit, AfterViewInit {
   @Input() address: FormGroup;
   @Output() formSubmit: EventEmitter<string> = new EventEmitter();
 
-  mAddress: Address;
   configuration: any;
   cityCode: string;
   selectedCity: any;
@@ -29,13 +28,10 @@ export class AddressFormComponent implements OnInit, AfterViewInit {
   zoom: number = 12;
   
   constructor(private catalogService: CatalogService, private wrapper: GoogleMapsAPIWrapper, private _loader: MapsAPILoader) { 
-    this.mAddress = new Address();
-    this.mAddress.Country = "UY";
-    this.mAddress.City = "MVD";
     this.configuration = { Cities:[]};
     this.selectedCity = { Neighbourhoods: [{Code:"POCITOS", Name:"Pocitos"}]};
     this.cityCode = "MVD";
-    this.catalogService.loadConfiguration(this.mAddress.Country)
+    this.catalogService.loadConfiguration('UY')
     .then(c => {
       this.configuration = c;
       this.refreshNeighbourhoods(this.cityCode, false);
@@ -48,23 +44,34 @@ export class AddressFormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.address.controls['country'].setValue('UY');
+    this.address.controls['city'].setValue('MVD');
   }
 
   ngAfterViewInit(){
-    $('.select2').on(
+    $('#selectCities').on(
         'change',
         (e) => this.refreshNeighbourhoods($(e.target).val(), true)
     );
+    $('#selectBarrios').on(
+      'change',
+      (e) => this.setNeighbourhood($(e.target).val())
+    );
   };
 
+  setNeighbourhood(neigCode){
+    let code = this.selectedCity.Neighbourhoods[neigCode].Code;
+    this.address.controls['neighbourhood'].setValue(code);
+  }
+
   refreshNeighbourhoods(cityCode, recenter){
+    this.address.controls['city'].setValue(cityCode);
     for(let c of this.configuration.Cities){
       if(cityCode.indexOf(c.Code) !== -1){
         this.selectedCity = c;
 
         if(recenter){
-          this.lat = c.Lat;
-          this.lng = c.Lng;
+          this.setLatLng(c.Lat, c.Lng)
           this.wrapper.getNativeMap().then(gm => gm.setCenter({lat: this.lat, lng: this.lng}))
         }
         
@@ -75,11 +82,17 @@ export class AddressFormComponent implements OnInit, AfterViewInit {
           cc.text = cc.Name;
           n = n +1;
         }
+        if(c.Neighbourhoods.length > 0){
+          this.address.controls['neighbourhood'].setValue(c.Neighbourhoods[0].Code);
+        }else{
+          this.address.controls['neighbourhood'].setValue("");
+        }
         $('.neighbourhood-selector').empty();
         $(".neighbourhood-selector").select2({
           data: c.Neighbourhoods,
           width: '100%' 
         })
+
       }
     }
   };
@@ -123,7 +136,7 @@ export class AddressFormComponent implements OnInit, AfterViewInit {
       alert(errorStrings);
       return;
     }
-    //this.formSubmit.emit(tab);
+    this.formSubmit.emit(tab);
   }
 
 }

@@ -48,14 +48,14 @@
 
             <div class="form-group {{!address.controls.city.valid && address.controls.city.touched ? 'has-error' : ''}}">
                 <label>Ciudad</label>
-                <select class="select2" formControlName="city" name="city">
-                    <option *ngFor="let c of configuration.Cities" [ngValue]="c.Code">{{c.Name}}</option>
+                <select class="select2" [(ngModel)]="cityCode" formControlName="city" name="city" id="selectCities">
+                    <option *ngFor="let c of configuration.Cities" [(ngValue)]="c.Code">{{c.Name}}</option>
                 </select>
             </div>
 
             <div class="form-group {{!address.controls.neighbourhood.valid && address.controls.neighbourhood.touched ? 'has-error' : ''}}" >
                 <label>Barrio</label>
-                <select class="select2 neighbourhood-selector" name="neighbourhood" formControlName="neighbourhood">
+                <select class="select2 neighbourhood-selector" name="neighbourhood" formControlName="neighbourhood" id="selectBarrios">
                 </select>
             </div>
             <div class="form-group">
