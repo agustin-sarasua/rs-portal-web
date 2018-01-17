@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { CatalogService } from '../../services/catalog.service';
+import { AllValidationErrors, getFormValidationErrors, getErrors } from './../../util/validation-util'
+
 declare var $ :any;
 
 @Component({
@@ -11,6 +13,8 @@ declare var $ :any;
 export class PropertyInfoFormComponent implements OnInit {
 
   @Input() property: FormGroup;
+
+  @Output() formSubmit: EventEmitter<string> = new EventEmitter();
 
   propertyTypes: any;
 
@@ -26,5 +30,17 @@ export class PropertyInfoFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  submit(tab) {
+    let errorStrings: Array<string> = [];
+    if (this.property.invalid) {
+      const errors: AllValidationErrors[] = getFormValidationErrors(this.property.controls);
+      errorStrings = getErrors(errors)
+      alert(errorStrings);
+      return;
+    }
+    this.formSubmit.emit(tab);
+  }
+
 
 }

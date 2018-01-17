@@ -87,6 +87,18 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     this.switchTabActive(tab)
   }
 
+  submitSaleInfo(tab){
+    console.log(tab)
+    $('[href="'+tab+'"]').tab('show');
+    this.switchTabActive(tab)
+  }
+
+  submitPropertyInfo(tab){
+    console.log(tab)
+    $('[href="'+tab+'"]').tab('show');
+    this.switchTabActive(tab)
+  }
+
   switchTabActive(currentTab){
     $('.submit-property__steps > li').removeClass('active');
     $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');

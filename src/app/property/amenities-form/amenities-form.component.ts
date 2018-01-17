@@ -20,7 +20,6 @@ export class AmenitiesFormComponent implements OnInit {
     this.catalogService.loadAmenitites("UY")
     .then(c => {
       this.amenities = c;
-      //this.refreshNeighbourhoods(this.cityCode, false);
     });
   }
 
