@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-2">
-                        <app-contact-info [contactInfo]="myForm.controls.contactInfo"></app-contact-info>
+                        <app-contact-info (formSubmit)="submitContactInfo($event)" [contactInfo]="myForm.controls.contactInfo"></app-contact-info>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-3">

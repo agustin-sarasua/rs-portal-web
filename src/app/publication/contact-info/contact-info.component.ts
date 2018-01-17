@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
+import { AllValidationErrors, getFormValidationErrors, getErrors } from './../../util/validation-util'
 
 @Component({
   selector: 'app-contact-info',
@@ -9,10 +10,21 @@ import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@ang
 export class ContactInfoComponent implements OnInit {
 
   @Input() contactInfo: FormGroup;
+  @Output() formSubmit: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  submit(tab) {
+    let errorStrings: Array<string> = [];
+    if (this.contactInfo.invalid) {
+      const errors: AllValidationErrors[] = getFormValidationErrors(this.contactInfo.controls);
+      errorStrings = getErrors(errors)
+      alert(errorStrings);
+      return;
+    }
+    this.formSubmit.emit(tab);
+  }
 }
