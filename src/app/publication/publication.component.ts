@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import {Address} from './../model/address'
+import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 declare var $ :any;
 
@@ -14,7 +16,7 @@ export class PublicationComponent implements OnInit, AfterViewInit {
   myForm: FormGroup;
   // address: Address;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, public router: Router,public location: Location) { 
     // this.address = new Address();
   }
 
@@ -53,7 +55,7 @@ export class PublicationComponent implements OnInit, AfterViewInit {
       }),
       saleInfo: this.fb.group({
         price: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000000)]],
-        expeneses: ['', [<any>Validators.required,Validators.min(0), Validators.max(100000000)]],
+        expenses: ['', [<any>Validators.required,Validators.min(0), Validators.max(100000000)]],
         currency: ['', <any>Validators.required]
       }),
       contactInfo: this.fb.group({
@@ -64,13 +66,34 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     })
   }
 
+  formSubmitAll(e){
+    console.log("All submited");
+    var currentTab = $(e.currentTarget).attr('href');
+    $('[href="#submit-property-3"]').tab('show');
+    $('.submit-property__steps > li').removeClass('active');
+    $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
+    // this.router.navigate(['']);
+  }
+
+  submitAddress(tab){
+    console.log(tab)
+    $('[href="'+tab+'"]').tab('show');
+    this.switchTabActive(tab)
+  }
+
+  switchTabActive(currentTab){
+    $('.submit-property__steps > li').removeClass('active');
+    $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
+  }
+
+
   ngAfterViewInit(){
-    $('.submit-property__button').on('shown.bs.tab', function (e) {
-      var currentTab = $(e.target).attr('href');
+    // $('.submit-property__button').on('shown.bs.tab', function (e) {
+    //   var currentTab = $(e.target).attr('href');
   
-      $('.submit-property__steps > li').removeClass('active');
-      $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
-    });
+    //   $('.submit-property__steps > li').removeClass('active');
+    //   $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
+    // });
   };
 
 

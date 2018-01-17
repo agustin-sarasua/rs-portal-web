@@ -20,7 +20,7 @@
                 <div class="tab-content submit-property__content">
                 
                     <div class="tab-pane fade in active" id="submit-property-1">
-                        <app-address-form [address]="myForm.controls.address"></app-address-form>
+                        <app-address-form (formSubmit)="submitAddress($event)" [address]="myForm.controls.address"></app-address-form>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-2">
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-5">
-                        <app-amenities-form></app-amenities-form>
+                        <app-amenities-form (formSubmit)="formSubmitAll($event)"></app-amenities-form>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-6">

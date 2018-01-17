@@ -64,7 +64,7 @@
                     <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"></agm-marker>
                 </agm-map>
             </div>
-            <a href="#submit-property-2" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
+            <a (click)="submit('#submit-property-2')" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
                 <i class="zmdi zmdi-long-arrow-right"></i>
             </a>
         </div>

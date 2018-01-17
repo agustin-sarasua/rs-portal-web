@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CatalogService } from '../../services/catalog.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class AmenitiesFormComponent implements OnInit {
 
   amenities: any;
   selectedAmenities: Array<string>;
+  @Output() formSubmit: EventEmitter<any> = new EventEmitter();
 
   constructor(private catalogService: CatalogService) { 
     this.amenities = {};
@@ -25,6 +26,10 @@ export class AmenitiesFormComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  submit(event) {
+    this.formSubmit.emit(event);
   }
 
   change(event){
