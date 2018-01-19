@@ -13,9 +13,19 @@ export class SaleInfoComponent implements OnInit {
 
   @Output() formSubmit: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  currencyValue = "UY";
+
+  constructor() { 
+    this.currencyValue = "UY";
+  }
 
   ngOnInit() {
+    this.saleInfo.controls['currency'].setValue("UY");
+  }
+
+  setCurrency(val){
+    this.currencyValue = val;
+    this.saleInfo.controls['currency'].setValue(val);
   }
 
   submit(tab) {

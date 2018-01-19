@@ -20,11 +20,11 @@
         <div class="form-group">
             <label>Moneda</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
-                <label class="btn">
-                    <input type="radio" formControlName="currency" value="USD" name="currency">USD
+                <label class="btn" (click)="setCurrency('USD')">
+                    <input type="radio" formControlName="currency" [value]="USD" name="currency">USD
                 </label>
-                <label class="btn active">
-                    <input type="radio" formControlName="currency" value="UY" name="currency" checked>$ UY 
+                <label class="btn active" (click)="setCurrency('UY')">
+                    <input type="radio" formControlName="currency" [value]="UY" name="currency" checked>$ UY 
                 </label>
             </div>
         </div>

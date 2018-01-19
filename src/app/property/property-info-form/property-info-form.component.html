@@ -96,22 +96,22 @@
         <div class="form-group">
             <label>Dormitorios</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
-                <label class="btn">
+                <label class="btn" (click)="setBedrooms(0)">
                     <input type="radio" formControlName="bedrooms" value="0" name="bedrooms">1 Amb.
                 </label>
-                <label class="btn">
-                    <input type="radio" formControlName="bedrooms" value="1" name="bedrooms">1
+                <label class="btn" (click)="setBedrooms(1)">
+                    <input type="radio" formControlName="bedrooms" value="1" name="bedrooms" checked>1
                 </label>
-                <label class="btn active">
-                    <input type="radio" formControlName="bedrooms" value="2" name="bedrooms" checked>2
+                <label class="btn active" (click)="setBedrooms(2)">
+                    <input type="radio" formControlName="bedrooms" value="2" name="bedrooms">2
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setBedrooms(3)">
                     <input type="radio" formControlName="bedrooms" value="3" name="bedrooms">3
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setBedrooms(4)">
                     <input type="radio" formControlName="bedrooms" value="4" name="bedrooms">4
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setBedrooms(999)">
                     <input type="radio" formControlName="bedrooms" value="5" name="bedrooms">4+
                 </label>
             </div>
@@ -120,19 +120,19 @@
         <div class="form-group">
             <label>Baños</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
-                <label class="btn">
-                    <input type="radio" formControlName="bathrooms" value="1"  name="bathrooms">1
+                <label class="btn" (click)="setBathrooms(1)">
+                    <input type="radio" formControlName="bathrooms" value="1"  name="bathrooms" checked>1
                 </label>
-                <label class="btn active">
-                    <input type="radio" formControlName="bathrooms" value="2" name="bathrooms" checked>2
+                <label class="btn active" (click)="setBathrooms(2)">
+                    <input type="radio" formControlName="bathrooms" value="2" name="bathrooms">2
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setBathrooms(3)">
                     <input type="radio" formControlName="bathrooms" value="3" name="bathrooms">3
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setBathrooms(4)">
                     <input type="radio" formControlName="bathrooms" value="4" name="bathrooms">4
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setBathrooms(999)">
                     <input type="radio" formControlName="bathrooms" value="5" name="bathrooms">4+
                 </label>
             </div>
@@ -141,16 +141,16 @@
         <div class="form-group">
             <label>No. de Pisos</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
-                <label class="btn">
-                    <input type="radio" formControlName="floors" value="1" name="floors">1
+                <label class="btn" (click)="setFloors(1)">
+                    <input type="radio" formControlName="floors" value="1" name="floors" checked>1
                 </label>
-                <label class="btn active">
-                    <input type="radio" formControlName="floors" value="2" name="floors" checked>2
+                <label class="btn active" (click)="setFloors(2)">
+                    <input type="radio" formControlName="floors" value="2" name="floors">2
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setFloors(3)">
                     <input type="radio" formControlName="floors" value="3" name="floors">3
                 </label>
-                <label class="btn">
+                <label class="btn" (click)="setFloors(999)">
                     <input type="radio" formControlName="floors" value="4" name="floors">3+
                 </label>
             </div>
@@ -159,17 +159,17 @@
         <div class="form-group">
             <label>Garages</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
-                <label class="btn">
-                    <input type="radio" formControlName="garages" value="1" name="garages" checked>1
+                <label class="btn" (click)="setGarages(0)">
+                    <input type="radio" formControlName="garages" value="0" name="garages" checked>0
                 </label>
-                <label class="btn active">
+                <label class="btn active" (click)="setGarages(1)">
+                    <input type="radio" formControlName="garages" value="1" name="garages">1
+                </label>
+                <label class="btn" (click)="setGarages(2)">
                     <input type="radio" formControlName="garages" value="2" name="garages">2
                 </label>
-                <label class="btn">
-                    <input type="radio" formControlName="garages" value="3" name="garages">3
-                </label>
-                <label class="btn">
-                    <input type="radio" formControlName="garages" value="4" name="garages">3+
+                <label class="btn" (click)="setGarages(999)">
+                    <input type="radio" formControlName="garages" value="3" name="garages">2+
                 </label>
             </div>
         </div>

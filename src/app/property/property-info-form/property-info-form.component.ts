@@ -29,6 +29,26 @@ export class PropertyInfoFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.property.controls["bedrooms"].setValue(1);
+    this.property.controls["bathrooms"].setValue(1);
+    this.property.controls["garages"].setValue(0);
+    this.property.controls["floors"].setValue(1);
+  }
+
+  setBedrooms(val) {
+    this.property.controls["bedrooms"].setValue(val);
+  }
+
+  setBathrooms(val) {
+    this.property.controls["bathrooms"].setValue(val);
+  }
+
+  setGarages(val) {
+    this.property.controls["garages"].setValue(val);
+  }
+
+  setFloors(val) {
+    this.property.controls["floors"].setValue(val);
   }
 
   submit(tab) {
