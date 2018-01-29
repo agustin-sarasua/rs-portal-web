@@ -30,29 +30,32 @@
                 <option *ngFor="let c of catalogService.countryConfiguration.States" [ngValue]="c.Code">{{c.Name}}</option>
             </select>
         </div>
+        <div class="row">
+            <div class="col-sm-6">    
+                <div class="form-group">    
+                    <label>Disposición</label>
 
-        <div class="form-group">
-            <label>Disposición</label>
+                    <select class="select2">
+                        <option value="FRENTE">Al frente</option>
+                        <option value="CONTRAFRENTE">Contrafrente</option>
+                        <option value="INTERIOR">Interior</option>
+                        <option value="LATERAL">Lateral</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Orientación</label>
 
-            <select class="select2">
-                <option value="">Al frente</option>
-                <option value="">Contrafrente</option>
-                <option value="">Interior</option>
-                <option value="">Lateral</option>
-            </select>
+                    <select class="select2">
+                        <option value="NORTH">Norte</option>
+                        <option value="SOUTH">Sur</option>
+                        <option value="ESTE">Este</option>
+                        <option value="WEST">Oeste</option>
+                    </select>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group">
-            <label>Orientación</label>
-
-            <select class="select2">
-                <option value="">Norte</option>
-                <option value="">Sur</option>
-                <option value="">Este</option>
-                <option value="">Oeste</option>
-            </select>
-        </div>
-
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group form-group--float form-group--float-center">

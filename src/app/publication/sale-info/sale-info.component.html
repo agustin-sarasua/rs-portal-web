@@ -29,6 +29,25 @@
             </div>
         </div>
 
+        <div class="row">
+            <header class="section__title">
+                <h2>Garantias Aceptadas</h2>
+            </header>
+            <div *ngFor="let a of catalogService.countryConfiguration.Guarantees">
+                <div class="col-sm-6">
+                    <div class="form-group align-left">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="{{a.Code}}" name="{{a.Name}}" (change) ="change($event)">
+                                <i class="input-helper"></i>
+                                {{a.Name}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a (click)="submit('#submit-property-4')" data-toggle="tab" class="btn btn--circle btn-primary submit-property__button">
             <i class="zmdi zmdi-long-arrow-right"></i>
         </a>

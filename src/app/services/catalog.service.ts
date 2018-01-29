@@ -12,7 +12,7 @@ export class CatalogService {
 
   private authHeader: string ='X-Firebase-Token';
 
-  public countryConfiguration: any = { States:[]};
+  public countryConfiguration: any = { States:[], Guarantees:[]};
 
   constructor(private http: Http, private restService: RestService, private authService: AuthService) { }
 

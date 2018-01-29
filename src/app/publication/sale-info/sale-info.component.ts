@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { AllValidationErrors, getFormValidationErrors, getErrors } from './../../util/validation-util'
+import { CatalogService } from '../../services/catalog.service';
 
 @Component({
   selector: 'app-sale-info',
@@ -14,9 +15,11 @@ export class SaleInfoComponent implements OnInit {
   @Output() formSubmit: EventEmitter<string> = new EventEmitter();
 
   currencyValue = "UY";
+  selectedGuarantees: Array<string>;
 
-  constructor() { 
+  constructor(private catalogService: CatalogService) { 
     this.currencyValue = "UY";
+    this.selectedGuarantees = [];
   }
 
   ngOnInit() {
@@ -37,6 +40,23 @@ export class SaleInfoComponent implements OnInit {
       return;
     }
     this.formSubmit.emit(tab);
+  }
+
+  change(event){
+    if (event.target.checked) {
+      //Add
+      this.selectedGuarantees.push(event.target.value);
+    } else{
+      //Remove
+      var index = this.selectedGuarantees.indexOf(event.target.value, 0);
+      if (index > -1) {
+        this.selectedGuarantees.splice(index, 1);
+      }
+    }
+  }
+
+  isSelected(guarantee){
+    return this.selectedGuarantees.indexOf(guarantee, 0) != -1;
   }
 
 }
