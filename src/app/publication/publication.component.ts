@@ -1,8 +1,10 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
-import {Address} from './../model/address'
+import { Address } from './../model/address'
 import { Router } from '@angular/router';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
+import { PropertyService } from '../services/property.service';
+import { Property } from '../model/property';
 
 declare var $ :any;
 
@@ -14,10 +16,8 @@ declare var $ :any;
 export class PublicationComponent implements OnInit, AfterViewInit {
 
   myForm: FormGroup;
-  // address: Address;
 
-  constructor(private fb: FormBuilder, public router: Router,public location: Location) { 
-    // this.address = new Address();
+  constructor(private fb: FormBuilder, public router: Router, public location: Location, public propertyService: PropertyService) { 
   }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class PublicationComponent implements OnInit, AfterViewInit {
         description: [''],
         title: ['', <any>Validators.required],
         type: ['', <any>Validators.required],
-        orientation: ['', <any>Validators.required],
+        orientation: [''],
         squareFeet: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000)]],
         lotSize: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000)]],
         terraceSize: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000)]],
@@ -69,11 +69,34 @@ export class PublicationComponent implements OnInit, AfterViewInit {
   formSubmitAll(e){
     console.log("All submited");
     var currentTab = $(e.currentTarget).attr('href');
-    $('[href="#submit-property-3"]').tab('show');
-    $('.submit-property__steps > li').removeClass('active');
-    $('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
+
+
+
+    var prop: Property = new Property();
+    prop.Type = this.myForm.controls.property.get("type").value;
+    prop.Title = this.myForm.controls.property.get("title").value;
+    prop.Description = this.myForm.controls.property.get("description").value;
+    prop.Bathrooms = this.myForm.controls.property.get("bathrooms").value;
+    prop.Bedrooms = this.myForm.controls.property.get("bedrooms").value;
+    prop.ConstructionSize = this.myForm.controls.property.get("lotSize").value;
+    prop.ConstructionYear = this.myForm.controls.property.get("constructionYear").value;
+    prop.Floors = this.myForm.controls.property.get("floors").value;
+    prop.Garages = this.myForm.controls.property.get("garages").value;
+    prop.Orientation = this.myForm.controls.property.get("orientation").value;
+    prop.Disposition = this.myForm.controls.property.get("disposition").value;
+    prop.Size = this.myForm.controls.property.get("squareFeet").value;
+    prop.TerraceSize = this.myForm.controls.property.get("terraceSize").value;
+
+    this.propertyService.createProperty(prop)
+
+    //$('[href="#submit-property-3"]').tab('show');
+    //$('.submit-property__steps > li').removeClass('active');
+    //$('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
     // this.router.navigate(['']);
   }
+
+  
+
 
   submitAddress(tab){
     console.log(tab)

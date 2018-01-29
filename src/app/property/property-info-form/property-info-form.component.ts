@@ -18,10 +18,13 @@ export class PropertyInfoFormComponent implements OnInit {
 
   propertyTypes: any;
 
+  countryConfig: any;
+
   constructor(private catalogService: CatalogService) { 
+    this.countryConfig = {States:[]}
     this.propertyTypes = {};
     this.propertyTypes.Items = [];
-
+    this.countryConfig = catalogService.countryConfiguration;
     this.catalogService.loadPropertyTypes("UY")
     .then(c => {
       this.propertyTypes = c;

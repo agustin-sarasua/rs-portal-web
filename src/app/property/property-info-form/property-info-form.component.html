@@ -26,15 +26,8 @@
 
         <div class="form-group">
             <label>Estado</label>
-
-            <select class="select2">
-                <option value="">Reciclada</option>
-                <option value="">A reciclar</option>
-                <option value="">Requerie mantenimiento</option>
-                <option value="">Buen estado</option>
-                <option value="">Excelente estado</option>
-                <option value="">A estrenar</option>
-                <option value="">En construcción</option>
+            <select class="select2" formControlName="state" name="state">
+                <option *ngFor="let c of catalogService.countryConfiguration.States" [ngValue]="c.Code">{{c.Name}}</option>
             </select>
         </div>
 

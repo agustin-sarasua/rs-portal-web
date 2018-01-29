@@ -17,7 +17,7 @@ export class PropertyService {
   public createProperty (property: Property): Promise<string> {
     let body = JSON.stringify(property, (k,v) => { if(v == null) { return undefined; } else { return v; } } );
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.restService.doPost("property", body, headers, true);
+    return this.restService.doPost("/property", body, headers, true);
   }
 
   public loadProperties(): Promise<Property[]> {

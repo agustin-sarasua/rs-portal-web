@@ -12,6 +12,8 @@ export class CatalogService {
 
   private authHeader: string ='X-Firebase-Token';
 
+  public countryConfiguration: any = { States:[]};
+
   constructor(private http: Http, private restService: RestService, private authService: AuthService) { }
 
   public loadConfiguration(country: string): Promise<any> {
@@ -21,7 +23,11 @@ export class CatalogService {
 
     return this.http.get(environment.hostUrl + "/catalog/country/"+country, { headers })
       .toPromise()
-      .then(this.extractData)
+      .then(res => {
+        var data = this.extractData(res)
+        this.countryConfiguration = data;
+        return data;
+      })
       .catch(this.handleError);
   }
 

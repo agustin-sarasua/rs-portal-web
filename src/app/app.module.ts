@@ -22,6 +22,8 @@ import { PropertyComponent } from './property/property.component';
 import { AddressFormComponent } from './property/address-form/address-form.component';
 import { ContactInfoComponent } from './publication/contact-info/contact-info.component';
 import { CatalogService } from './services/catalog.service';
+import { PropertyService } from './services/property.service';
+import { PublicationService } from './services/publication.service';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 import * as $ from 'jquery';
@@ -59,7 +61,7 @@ import { SaleInfoComponent } from './publication/sale-info/sale-info.component';
     })
 
   ],
-  providers: [AuthService, RestService, UserService, CatalogService, GoogleMapsAPIWrapper],
+  providers: [AuthService, RestService, UserService, PropertyService, PublicationService, CatalogService, GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
