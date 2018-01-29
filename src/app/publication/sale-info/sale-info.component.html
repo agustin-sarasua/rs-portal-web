@@ -1,10 +1,18 @@
 <div class="card">
     <div class="card__header">
-        <h2>Precio</h2>
+        <h2>Información de la Publicación</h2>
         <small></small>
     </div>
 
     <div class="card__body" [formGroup]="saleInfo">
+        <div class="form-group">
+            <label>Operación</label>
+            <select class="select2" id="selectOperation" name="operation">
+                <option value="ANUAL_RENT">Alquiler Anual</option>
+                <option value="TEMPORAL_RENT">Alquiler Temporal</option>
+                <option value="SALE">Venta</option>
+            </select>
+        </div>
         <div class="form-group form-group--float form-group--float-center {{!saleInfo.controls.price.valid && saleInfo.controls.price.touched ? 'has-error' : ''}}">
             <input type="number" min="0" class="form-control text-center" formControlName="price" name="price">
             <i class="form-group__bar"></i>
@@ -28,8 +36,7 @@
                 </label>
             </div>
         </div>
-
-        <div class="row">
+        <div class="row" id="guarantee-container">
             <header class="section__title">
                 <h2>Garantias Aceptadas</h2>
             </header>

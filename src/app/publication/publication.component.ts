@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PropertyService } from '../services/property.service';
 import { Property } from '../model/property';
+import { LatLng } from '../model/address';
+import { Publication } from '../model/publication';
 
 declare var $ :any;
 
@@ -16,8 +18,12 @@ declare var $ :any;
 export class PublicationComponent implements OnInit, AfterViewInit {
 
   myForm: FormGroup;
+  selectedGuarantees: Array<string>;
+  selectedAmenities: Array<string>;
 
   constructor(private fb: FormBuilder, public router: Router, public location: Location, public propertyService: PropertyService) { 
+    this.selectedGuarantees = [];
+    this.selectedAmenities = [];
   }
 
   ngOnInit() {
@@ -56,7 +62,8 @@ export class PublicationComponent implements OnInit, AfterViewInit {
       saleInfo: this.fb.group({
         price: ['', [<any>Validators.required,Validators.min(0), Validators.max(10000000)]],
         expenses: ['', [<any>Validators.required,Validators.min(0), Validators.max(100000000)]],
-        currency: ['', <any>Validators.required]
+        currency: ['', <any>Validators.required],
+        operation: ['', <any>Validators.required]
       }),
       contactInfo: this.fb.group({
         name: ['', <any>Validators.required],
@@ -70,11 +77,8 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     console.log("All submited");
     var currentTab = $(e.currentTarget).attr('href');
 
-
-
     var prop: Property = new Property();
     prop.Type = this.myForm.controls.property.get("type").value;
-    prop.Title = this.myForm.controls.property.get("title").value;
     prop.Description = this.myForm.controls.property.get("description").value;
     prop.Bathrooms = this.myForm.controls.property.get("bathrooms").value;
     prop.Bedrooms = this.myForm.controls.property.get("bedrooms").value;
@@ -87,6 +91,26 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     prop.Size = this.myForm.controls.property.get("squareFeet").value;
     prop.TerraceSize = this.myForm.controls.property.get("terraceSize").value;
 
+    var address: Address = new Address();
+    address.City = this.myForm.controls.address.get("city").value;
+    address.Neighbourhood = this.myForm.controls.address.get("neighbourhood").value;
+    address.Street = this.myForm.controls.address.get("street").value;
+    address.Number = this.myForm.controls.address.get("number").value;
+    address.ApartmentNumber = this.myForm.controls.address.get("apartmentNumber").value;
+    address.Country = this.myForm.controls.address.get("country").value;
+    address.PostalCode = this.myForm.controls.address.get("postalCode").value;
+    address.Location = new LatLng();
+    address.Location.Lat = this.myForm.controls.address.get("location").get("latitude").value;
+    address.Location.Lng = this.myForm.controls.address.get("location").get("longitude").value;
+
+    prop.Address = address;
+
+    prop.Amenities = this.selectedAmenities.join(); 
+    
+    var pub: Publication = new Publication();
+    pub.Title = this.myForm.controls.property.get("title").value;
+    pub.Operation
+
     this.propertyService.createProperty(prop)
 
     //$('[href="#submit-property-3"]').tab('show');
@@ -94,9 +118,6 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     //$('.submit-property__steps > li > a[href="'+currentTab+'"]').parent().addClass('active');
     // this.router.navigate(['']);
   }
-
-  
-
 
   submitAddress(tab){
     console.log(tab)

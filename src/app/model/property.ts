@@ -2,7 +2,6 @@ import {Address} from './address'
 
 export class Property {
     public ID: number;
-    public Title: string;
     public Description: string;
     public Type: string;
     public Orientation: string;

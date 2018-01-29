@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-3">
-                        <app-sale-info (formSubmit)="submitSaleInfo($event)" [saleInfo]="myForm.controls.saleInfo"></app-sale-info>
+                        <app-sale-info (formSubmit)="submitSaleInfo($event)" [selectedGuarantees]="selectedGuarantees" [saleInfo]="myForm.controls.saleInfo"></app-sale-info>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-4">
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-5">
-                        <app-amenities-form (formSubmit)="formSubmitAll($event)"></app-amenities-form>
+                        <app-amenities-form (formSubmit)="formSubmitAll($event)" [selectedAmenities]="selectedAmenities"></app-amenities-form>
                     </div>
 
                     <div class="tab-pane fade" id="submit-property-6">

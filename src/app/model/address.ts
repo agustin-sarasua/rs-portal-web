@@ -6,5 +6,10 @@ export class Address {
 	public City: string;
 	public Country: string;
 	public PostalCode: string;
-	public Location: string;
+	public Location: LatLng;
+}
+
+export class LatLng {
+	public Lat: string;
+	public Lng: string;
 }

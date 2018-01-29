@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CatalogService } from '../../services/catalog.service';
 
 @Component({
@@ -9,13 +9,12 @@ import { CatalogService } from '../../services/catalog.service';
 export class AmenitiesFormComponent implements OnInit {
 
   amenities: any;
-  selectedAmenities: Array<string>;
+  @Input() selectedAmenities: Array<string>;
   @Output() formSubmit: EventEmitter<any> = new EventEmitter();
 
   constructor(private catalogService: CatalogService) { 
     this.amenities = {};
     this.amenities.Items = [];
-    this.selectedAmenities = [];
 
     this.catalogService.loadAmenitites("UY")
     .then(c => {
@@ -24,7 +23,6 @@ export class AmenitiesFormComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   submit(event) {
@@ -39,10 +37,9 @@ export class AmenitiesFormComponent implements OnInit {
       //Remove
       var index = this.selectedAmenities.indexOf(event.target.value, 0);
       if (index > -1) {
-        this.amenities.splice(index, 1);
+        this.selectedAmenities.splice(index, 1);
       }
     }
-    
   }
 
   isSelected(amentity){
