@@ -12,7 +12,7 @@
             </select>
         </div>
 
-        <div class="form-group form-group--float form-group--float-center">
+        <div class="form-group form-group--float form-group--float-center {{!property.controls.title.valid && property.controls.title.touched ? 'has-error' : ''}}">
             <input type="text" formControlName="title" class="form-control text-center">
             <i class="form-group__bar"></i>
             <label>* Titulo</label>
@@ -21,7 +21,7 @@
         <div class="form-group form-group--float form-group--float-center">
             <textarea formControlName="description" class="form-control text-center textarea-autoheight"></textarea>
             <i class="form-group__bar"></i>
-            <label>Descripcion</label>
+            <label>Descripción</label>
         </div>
 
         <div class="form-group">
@@ -58,8 +58,8 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <div class="form-group form-group--float form-group--float-center">
-                    <input type="text" formControlName="squareFeet" class="form-control text-center">
+                <div class="form-group form-group--float form-group--float-center {{!property.controls.squareFeet.valid && property.controls.squareFeet.touched ? 'has-error' : ''}}">
+                    <input type="number" min="0" formControlName="squareFeet" class="form-control text-center">
                     <i class="form-group__bar"></i>
                     <label>M² Construidos</label>
                 </div>
@@ -67,7 +67,7 @@
 
             <div class="col-sm-6">
                 <div class="form-group form-group--float form-group--float-center">
-                    <input type="text" formControlName="lotSize" class="form-control text-center">
+                    <input type="number" min="0" formControlName="lotSize" class="form-control text-center">
                     <i class="form-group__bar"></i>
                     <label>M² del Predio</label>
                 </div>
@@ -75,7 +75,7 @@
 
             <div class="col-sm-6">
                 <div class="form-group form-group--float form-group--float-center">
-                    <input type="text" formControlName="terraceSize" class="form-control text-center">
+                    <input type="number" min="0" formControlName="terraceSize" class="form-control text-center">
                     <i class="form-group__bar"></i>
                     <label>M² de Terraza</label>
                 </div>
@@ -84,7 +84,7 @@
         </div>
 
         <div class="form-group form-group--float form-group--float-center">
-            <input type="text" formControlName="constructionYear" class="form-control text-center">
+            <input type="number" min="0" formControlName="constructionYear" class="form-control text-center">
             <i class="form-group__bar"></i>
             <label>Año de Construcción</label>
         </div>

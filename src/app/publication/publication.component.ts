@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { PropertyService } from '../services/property.service';
 import { Property } from '../model/property';
 import { LatLng } from '../model/address';
-import { Publication } from '../model/publication';
+import { Publication, ContactInformation } from '../model/publication';
 
 declare var $ :any;
 
@@ -27,7 +27,6 @@ export class PublicationComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-  //     name: ['', [<any>Validators.required, <any>Validators.minLength(5)]],
     this.myForm = this.fb.group({
       name: [''],
       address: this.fb.group({
@@ -74,9 +73,15 @@ export class PublicationComponent implements OnInit, AfterViewInit {
   }
 
   formSubmitAll(e){
-    console.log("All submited");
+    console.log("Submitting Publication!");
     var currentTab = $(e.currentTarget).attr('href');
 
+    var pub: Publication = new Publication();
+    pub.Title = this.myForm.controls.property.get("title").value;
+    pub.Operation = this.myForm.controls.saleInfo.get("operation").value;
+    pub.Price = this.myForm.controls.saleInfo.get("price").value;
+    pub.Guarantees = this.selectedGuarantees.join(); 
+    
     var prop: Property = new Property();
     prop.Type = this.myForm.controls.property.get("type").value;
     prop.Description = this.myForm.controls.property.get("description").value;
@@ -90,6 +95,9 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     prop.Disposition = this.myForm.controls.property.get("disposition").value;
     prop.Size = this.myForm.controls.property.get("squareFeet").value;
     prop.TerraceSize = this.myForm.controls.property.get("terraceSize").value;
+    prop.Expenses = this.myForm.controls.saleInfo.get("expenses").value;
+    prop.Amenities = this.selectedAmenities.join(); 
+    pub.Property = prop;
 
     var address: Address = new Address();
     address.City = this.myForm.controls.address.get("city").value;
@@ -102,14 +110,13 @@ export class PublicationComponent implements OnInit, AfterViewInit {
     address.Location = new LatLng();
     address.Location.Lat = this.myForm.controls.address.get("location").get("latitude").value;
     address.Location.Lng = this.myForm.controls.address.get("location").get("longitude").value;
-
     prop.Address = address;
-
-    prop.Amenities = this.selectedAmenities.join(); 
     
-    var pub: Publication = new Publication();
-    pub.Title = this.myForm.controls.property.get("title").value;
-    pub.Operation
+    var cInfo: ContactInformation = new ContactInformation();
+    cInfo.Email = this.myForm.controls.contactInfo.get("email").value;
+    cInfo.Name = this.myForm.controls.contactInfo.get("name").value;
+    cInfo.PhoneNumber = this.myForm.controls.contactInfo.get("phone").value;
+    pub.ContactInformation = cInfo;
 
     this.propertyService.createProperty(prop)
 
